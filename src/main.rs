@@ -6,7 +6,7 @@ mod utils {
 use std::{format, println};
 use utils::gateio::generate_signature;
 use utils::lib::time_stamp;
-use utils::serde::{as_f64, as_u32, Candles};
+use utils::serde::{Candles};
 
 const SECRET: &str = "";
 const KEY: &str = "";
@@ -25,21 +25,7 @@ async fn main() {
     let response_body = response.text().await.unwrap();
     let sanitized_response = response_body.trim();
 
-    let candles: Result<Vec<Candles>, _> =
-        serde_json::from_str(sanitized_response).map(|candles: Vec<Vec<serde_json::Value>>| {
-            candles
-                .into_iter()
-                .map(|values| Candles {
-                    time: as_u32(&values[0]),
-                    open: as_f64(&values[1]),
-                    high: as_f64(&values[2]),
-                    low: as_f64(&values[3]),
-                    close: as_f64(&values[4]),
-                    volume: as_f64(&values[5]),
-                    volumes: as_f64(&values[6]),
-                })
-                .collect()
-        });
+    let candles = serde_json::from_str::<Vec<Candles>>(sanitized_response);
     match candles {
         Ok(candles) => {
             // Successfully deserialized the response into a Vec<Candles>

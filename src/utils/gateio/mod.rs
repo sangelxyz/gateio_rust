@@ -26,5 +26,5 @@ pub fn generate_signature(method: &str, url: &str, query_string: &str, secret: &
         "",
         time_stamp()
     );
-    hex_signature(&secret, &format_str[..])
+    hex_signature(secret, &format_str[..])
 }
