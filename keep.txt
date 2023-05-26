@@ -1,0 +1,32 @@
+
+// #[allow(non_snake_case)]
+// #[derive(Deserialize, Serialize, Debug)]
+// struct User {
+//     userId: u32,
+//     title: String,
+//     completed: bool,
+// }
+
+// #[allow(non_snake_case)]
+// #[derive(Deserialize, Serialize, Debug)]
+// struct Index {
+//     ve: String,
+// }
+//
+// fn parse_string_to_i32<'de, D>(deserializer: D) -> Result<i32, D::Error>
+// where
+//     D: serde::Deserializer<'de>,
+// {
+//     let s: &str = serde::Deserialize::deserialize(deserializer)?;
+//     s.parse().map_err(serde::de::Error::custom)
+// }
+// fn parse_string_to_f64<'de, D>(deserializer: D) -> Result<f64, D::Error>
+// where
+//     D: serde::Deserializer<'de>,
+// {
+//     let s: &str = serde::Deserialize::deserialize(deserializer)?;
+//     s.parse().map_err(serde::de::Error::custom)
+// }
+// key: 3d18e1fe23d940b31401bba5ad5501b2
+// secret : 4c37a074ba570497eeb5939c51b929a5bc16555f6711ca40f14402c352b169a5
+
